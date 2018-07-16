@@ -66,11 +66,7 @@ func (client *Client) generateSignature(timeSinceEpoch int64, randomUUID string)
 
 // request sends a request to Atlantic's API.
 func (client *Client) request(action string) (string, error) {
-	u, err := uuid.NewV4()
-	if err != nil {
-		return "", err
-	}
-	randomUUID := u.String()
+	randomUUID := uuid.NewV4().String()
 	timeSinceEpoch := time.Now().Unix()
 	signature := client.generateSignature(timeSinceEpoch, randomUUID)
 	form := url.Values{}
