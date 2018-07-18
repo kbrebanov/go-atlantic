@@ -4,14 +4,11 @@ import "encoding/json"
 
 // ListPrivateNetworksResult represents the result from listing private networks.
 type ListPrivateNetworksResult struct {
-	Timestamp int                         `json:"Timestamp"`
-	Response  ListPrivateNetworksResponse `json:"list-private-networksresponse"`
-}
-
-// ListPrivateNetworksResponse represents the response from listing private networks.
-type ListPrivateNetworksResponse struct {
-	PrivateNetworks map[string]PrivateNetwork `json:"KeysSet"`
-	RequestID       string                    `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		PrivateNetworks map[string]PrivateNetwork `json:"KeysSet"`
+		RequestID       string                    `json:"requestid"`
+	} `json:"list-private-networksresponse"`
 }
 
 // PrivateNetwork represents a private network.

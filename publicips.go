@@ -8,14 +8,11 @@ import (
 
 // ListPublicIPsResult represents the result from listing public IP's.
 type ListPublicIPsResult struct {
-	Timestamp int                   `json:"Timestamp"`
-	Response  ListPublicIPsResponse `json:"list-public-ipsresponse"`
-}
-
-// ListPublicIPsResponse represents the response from listing public IP's.
-type ListPublicIPsResponse struct {
-	PublicIPs map[string]PublicIP `json:"KeysSet"`
-	RequestID string              `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		PublicIPs map[string]PublicIP `json:"KeysSet"`
+		RequestID string              `json:"requestid"`
+	} `json:"list-public-ipsresponse"`
 }
 
 // ListPublicIPsInput represents the input for listing public IP's.
@@ -40,14 +37,11 @@ type PublicIP struct {
 
 // ReservePublicIPResult represents the result from reserving a public IP.
 type ReservePublicIPResult struct {
-	Timestamp int                     `json:"Timestamp"`
-	Response  ReservePublicIPResponse `json:"reserve-public-ipresponse"`
-}
-
-// ReservePublicIPResponse represents the response from reserving a public IP.
-type ReservePublicIPResponse struct {
-	ReservePublicIPs map[string]ReservePublicIP `json:"reserve-ip"`
-	RequestID        string                     `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		ReservePublicIPs map[string]ReservePublicIP `json:"reserve-ip"`
+		RequestID        string                     `json:"requestid"`
+	} `json:"reserve-public-ipresponse"`
 }
 
 // ReservePublicIP represents a reserved public IP.
@@ -75,14 +69,11 @@ type ReservePublicIPOutput struct {
 
 // ReleasePublicIPResult represents the result from releasing public IP's.
 type ReleasePublicIPResult struct {
-	Timestamp int                     `json:"Timestamp"`
-	Response  ReleasePublicIPResponse `json:"release-public-ipresponse"`
-}
-
-// ReleasePublicIPResponse represents the response from releasing public IP's.
-type ReleasePublicIPResponse struct {
-	ReleasePublicIPs map[string]ReleasePublicIP `json:"release-ip"`
-	RequestID        string                     `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		ReleasePublicIPs map[string]ReleasePublicIP `json:"release-ip"`
+		RequestID        string                     `json:"requestid"`
+	} `json:"release-public-ipresponse"`
 }
 
 // ReleasePublicIP represents a released public IP.
@@ -104,14 +95,11 @@ type ReleasePublicIPOutput struct {
 
 // AssignPublicIPResult represents the result from assigning public IP's.
 type AssignPublicIPResult struct {
-	Timestamp int                    `json:"Timestamp"`
-	Response  AssignPublicIPResponse `json:"assign-public-ipresponse"`
-}
-
-// AssignPublicIPResponse represents the response from assigning public IP's.
-type AssignPublicIPResponse struct {
-	AssignPublicIPs map[string]AssignPublicIP `json:"assign-ip"`
-	RequestID       string                    `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		AssignPublicIPs map[string]AssignPublicIP `json:"assign-ip"`
+		RequestID       string                    `json:"requestid"`
+	} `json:"assign-public-ipresponse"`
 }
 
 // AssignPublicIP represents an assigned public IP.
@@ -135,14 +123,11 @@ type AssignPublicIPOutput struct {
 
 // UnassignPublicIPResult represents the result from unassigning public IP's.
 type UnassignPublicIPResult struct {
-	Timestamp int                      `json:"Timestamp"`
-	Response  UnassignPublicIPResponse `json:"unassign-public-ipresponse"`
-}
-
-// UnassignPublicIPResponse represents the response from unassigning public IP's.
-type UnassignPublicIPResponse struct {
-	UnassignPublicIPs map[string]UnassignPublicIP `json:"unassign-ip"`
-	RequestID         string                      `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		UnassignPublicIPs map[string]UnassignPublicIP `json:"unassign-ip"`
+		RequestID         string                      `json:"requestid"`
+	} `json:"unassign-public-ipresponse"`
 }
 
 // UnassignPublicIP represents an unassigned public IP.

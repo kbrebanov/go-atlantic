@@ -8,14 +8,11 @@ import (
 
 // ListInstancesResult represents the result from listing instances.
 type ListInstancesResult struct {
-	Timestamp int                   `json:"Timestamp"`
-	Response  ListInstancesResponse `json:"list-instancesresponse"`
-}
-
-// ListInstancesResponse represents the response from listing instances.
-type ListInstancesResponse struct {
-	ListInstances map[string]ListInstance `json:"instancesSet"`
-	RequestID     string                  `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		ListInstances map[string]ListInstance `json:"instancesSet"`
+		RequestID     string                  `json:"requestid"`
+	} `json:"list-instancesresponse"`
 }
 
 // ListInstance represents a listed instance.
@@ -45,14 +42,11 @@ type ListInstancesOutput struct {
 
 // TerminateInstanceResult represents the result from terminating instances.
 type TerminateInstanceResult struct {
-	Timestamp int                       `json:"Timestamp"`
-	Response  TerminateInstanceResponse `json:"terminate-instanceresponse"`
-}
-
-// TerminateInstanceResponse represents the response from terminating instances.
-type TerminateInstanceResponse struct {
-	TerminateInstances map[string]TerminateInstance `json:"instancesSet"`
-	RequestID          string                       `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		TerminateInstances map[string]TerminateInstance `json:"instancesSet"`
+		RequestID          string                       `json:"requestid"`
+	} `json:"terminate-instanceresponse"`
 }
 
 // TerminateInstance represents a terminated instance.
@@ -74,14 +68,11 @@ type TerminateInstanceOutput struct {
 
 // RunInstanceResult represents the result from running instances.
 type RunInstanceResult struct {
-	Timestamp int                 `json:"Timestamp"`
-	Response  RunInstanceResponse `json:"run-instanceresponse"`
-}
-
-// RunInstanceResponse represents the response from running instances.
-type RunInstanceResponse struct {
-	RunInstances map[string]RunInstance `json:"instancesSet"`
-	RequestID    string                 `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		RunInstances map[string]RunInstance `json:"instancesSet"`
+		RequestID    string                 `json:"requestid"`
+	} `json:"run-instanceresponse"`
 }
 
 // RunInstance represents a ran instance.
@@ -112,14 +103,11 @@ type RunInstanceOutput struct {
 
 // DescribeInstanceResult represents the result from describing an instance.
 type DescribeInstanceResult struct {
-	Timestamp int                      `json:"Timestamp"`
-	Response  DescribeInstanceResponse `json:"describe-instanceresponse"`
-}
-
-// DescribeInstanceResponse represents the response from describing an instance.
-type DescribeInstanceResponse struct {
-	DescribeInstances map[string]DescribeInstance `json:"instanceSet"`
-	RequestID         string                      `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		DescribeInstances map[string]DescribeInstance `json:"instanceSet"`
+		RequestID         string                      `json:"requestid"`
+	} `json:"describe-instanceresponse"`
 }
 
 // DescribeInstance represents a described instance.
@@ -163,14 +151,11 @@ type DescribeInstanceOutput struct {
 
 // RebootInstanceResult represents the result from rebooting an instance.
 type RebootInstanceResult struct {
-	Timestamp int                    `json:"Timestamp"`
-	Response  RebootInstanceResponse `json:"reboot-instanceresponse"`
-}
-
-// RebootInstanceResponse represents the response from rebooting an instance.
-type RebootInstanceResponse struct {
-	RebootInstance RebootInstance `json:"return"`
-	RequestID      string         `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		RebootInstance RebootInstance `json:"return"`
+		RequestID      string         `json:"requestid"`
+	} `json:"reboot-instanceresponse"`
 }
 
 // RebootInstance represents a rebooted instance.
@@ -192,14 +177,11 @@ type RebootInstanceOutput struct {
 
 // ShutdownInstanceResult represents the result from shutting down instances.
 type ShutdownInstanceResult struct {
-	Timestamp int                      `json:"Timestamp"`
-	Response  ShutdownInstanceResponse `json:"shutdown-instanceresponse"`
-}
-
-// ShutdownInstanceResponse represents the response from shutting down instances.
-type ShutdownInstanceResponse struct {
-	ShutdownInstances map[string]ShutdownInstance `json:"instancesSet"`
-	RequestID         string                      `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		ShutdownInstances map[string]ShutdownInstance `json:"instancesSet"`
+		RequestID         string                      `json:"requestid"`
+	} `json:"shutdown-instanceresponse"`
 }
 
 // ShutdownInstance represents a shut down instance.
@@ -222,14 +204,11 @@ type ShutdownInstanceOutput struct {
 
 // PowerOnInstanceResult represents the result from powering on instances.
 type PowerOnInstanceResult struct {
-	Timestamp int                     `json:"Timestamp"`
-	Response  PowerOnInstanceResponse `json:"power-on-instanceresponse"`
-}
-
-// PowerOnInstanceResponse represents the response from powering on instances.
-type PowerOnInstanceResponse struct {
-	PowerOnInstances map[string]PowerOnInstance `json:"instancesSet"`
-	RequestID        string                     `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		PowerOnInstances map[string]PowerOnInstance `json:"instancesSet"`
+		RequestID        string                     `json:"requestid"`
+	} `json:"power-on-instanceresponse"`
 }
 
 // PowerOnInstance represents a powered on instance.
@@ -251,14 +230,11 @@ type PowerOnInstanceOutput struct {
 
 // ResizeInstanceResult represents the result from resizing an instance.
 type ResizeInstanceResult struct {
-	Timestamp int                    `json:"Timestamp"`
-	Response  ResizeInstanceResponse `json:"resize-instanceresponse"`
-}
-
-// ResizeInstanceResponse represents the response from resizing an instance.
-type ResizeInstanceResponse struct {
-	ResizeInstances map[string]ResizeInstance `json:"return"`
-	RequestID       string                    `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		ResizeInstances map[string]ResizeInstance `json:"return"`
+		RequestID       string                    `json:"requestid"`
+	} `json:"resize-instanceresponse"`
 }
 
 // ResizeInstance represents a resized instance.
@@ -282,34 +258,25 @@ type ResizeInstanceOutput struct {
 
 // ReprovisionInstanceResult represents the result from reprovisioning an instance.
 type ReprovisionInstanceResult struct {
-	Timestamp int                         `json:"Timestamp"`
-	Response  ReprovisionInstanceResponse `json:"reprovision-instanceresponse"`
-}
-
-// ReprovisionInstanceResponse represents the response from reprovisioning an instance.
-type ReprovisionInstanceResponse struct {
-	ReprovisionInstances map[string]ReprovisionInstance `json:"return"`
-	RequestID            string                         `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		ReprovisionInstances map[string]ReprovisionInstance `json:"return"`
+		RequestID            string                         `json:"requestid"`
+	} `json:"reprovision-instanceresponse"`
 }
 
 // ReprovisionInstance represents a reprovisioned instance.
 type ReprovisionInstance struct {
-	Info ReprovisionInstanceInfo `json:"1instance"`
-	Item ReprovisionInstanceItem `json:"1item"`
-}
-
-// ReprovisionInstanceInfo represents a reprovisioned instance's info.
-type ReprovisionInstanceInfo struct {
-	ID      string `json:"instanceid"`
-	Message string `json:"Message"`
-	Value   string `json:"value"`
-	Status  string `json:"vm_status"`
-}
-
-// ReprovisionInstanceItem represents a reprovisioned instances' item.
-type ReprovisionInstanceItem struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
+	Info struct {
+		ID      string `json:"instanceid"`
+		Message string `json:"Message"`
+		Value   string `json:"value"`
+		Status  string `json:"vm_status"`
+	} `json:"1instance"`
+	Item struct {
+		Username string `json:"username"`
+		Password string `json:"password"`
+	} `json:"1item"`
 }
 
 // ReprovisionInstanceInput represents the input for reprovisioning an instance.

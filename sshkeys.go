@@ -8,14 +8,11 @@ import (
 
 // ListSSHKeysResult represents the result from listing SSH keys.
 type ListSSHKeysResult struct {
-	Timestamp int                 `json:"Timestamp"`
-	Response  ListSSHKeysResponse `json:"list-sshkeysresponse"`
-}
-
-// ListSSHKeysResponse represents the response from listing SSH keys.
-type ListSSHKeysResponse struct {
-	SSHKeys   map[string]SSHKey `json:"KeysSet"`
-	RequestID string            `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		SSHKeys   map[string]SSHKey `json:"KeysSet"`
+		RequestID string            `json:"requestid"`
+	} `json:"list-sshkeysresponse"`
 }
 
 // SSHKey represents an SSH key.
@@ -32,14 +29,11 @@ type ListSSHKeysOutput struct {
 
 // AddSSHKeyResult represents the result from adding an SSH key.
 type AddSSHKeyResult struct {
-	Timestamp int               `json:"Timestamp"`
-	Response  AddSSHKeyResponse `json:"add-sshkeyresponse"`
-}
-
-// AddSSHKeyResponse represents the response from adding an SSH key.
-type AddSSHKeyResponse struct {
-	AddSSHKey AddSSHKey `json:"result"`
-	RequestID string    `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		AddSSHKey AddSSHKey `json:"result"`
+		RequestID string    `json:"requestid"`
+	} `json:"add-sshkeyresponse"`
 }
 
 // AddSSHKey represents an added SSH key.
@@ -63,14 +57,11 @@ type AddSSHKeyOutput struct {
 
 // DeleteSSHKeyResult represents the result from deleting SSH keys.
 type DeleteSSHKeyResult struct {
-	Timestamp int                  `json:"Timestamp"`
-	Response  DeleteSSHKeyResponse `json:"delete-sshkeyresponse"`
-}
-
-// DeleteSSHKeyResponse represents the response from deleting SSH keys.
-type DeleteSSHKeyResponse struct {
-	DeleteSSHKeys map[string]DeleteSSHKey `json:"delete-sshkey"`
-	RequestID     string                  `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		DeleteSSHKeys map[string]DeleteSSHKey `json:"delete-sshkey"`
+		RequestID     string                  `json:"requestid"`
+	} `json:"delete-sshkeyresponse"`
 }
 
 // DeleteSSHKey represents a deleted SSH key.

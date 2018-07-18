@@ -4,14 +4,11 @@ import "encoding/json"
 
 // ListLocationsResult represents the result from listing locations.
 type ListLocationsResult struct {
-	Timestamp int                   `json:"Timestamp"`
-	Response  ListLocationsResponse `json:"list-locationsresponse"`
-}
-
-// ListLocationsResponse represents the response from listing locations.
-type ListLocationsResponse struct {
-	Locations map[string]Location `json:"KeysSet"`
-	RequestID string              `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		Locations map[string]Location `json:"KeysSet"`
+		RequestID string              `json:"requestid"`
+	} `json:"list-locationsresponse"`
 }
 
 // Location struct represents a location.

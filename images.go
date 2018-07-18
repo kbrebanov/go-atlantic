@@ -8,14 +8,11 @@ import (
 
 // DescribeImageResult represents the result from describing an image.
 type DescribeImageResult struct {
-	Timestamp int                   `json:"Timestamp"`
-	Response  DescribeImageResponse `json:"describe-imageresponse"`
-}
-
-// DescribeImageResponse represents the response from describing an image.
-type DescribeImageResponse struct {
-	Images    map[string]Image `json:"imagesset"`
-	RequestID string           `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		Images    map[string]Image `json:"imagesset"`
+		RequestID string           `json:"requestid"`
+	} `json:"describe-imageresponse"`
 }
 
 // Image struct represents an image.

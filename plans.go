@@ -8,14 +8,11 @@ import (
 
 // DescribePlanResult represents the result from describing a plan.
 type DescribePlanResult struct {
-	Timestamp int                  `json:"Timestamp"`
-	Response  DescribePlanResponse `json:"describe-planresponse"`
-}
-
-// DescribePlanResponse represents the response from describing a plan.
-type DescribePlanResponse struct {
-	Plans     map[string]Plan `json:"plans"`
-	RequestID string          `json:"requestid"`
+	Timestamp int `json:"Timestamp"`
+	Response  struct {
+		Plans     map[string]Plan `json:"plans"`
+		RequestID string          `json:"requestid"`
+	} `json:"describe-planresponse"`
 }
 
 // Plan struct represents a plan.
