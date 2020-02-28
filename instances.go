@@ -143,6 +143,11 @@ type DescribeInstance struct {
 	VMRemovedDate               string `json:"vm_removed_date"`
 	VMStatus                    string `json:"vm_status"`
 	VMUsername                  string `json:"vm_username"`
+	VMLocation                  string `json:"vm_location"`
+	BytesInIncluded             string `json:"bytesin_included"`
+	BytesOutIncluded            string `json:"bytesout_included"`
+	BytesIn                     string `json:"bytesin"`
+	BytesOut                    string `json:"bytesout"`
 }
 
 // DescribeInstanceInput represents the input for describing an instance.
