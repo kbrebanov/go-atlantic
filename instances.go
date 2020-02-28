@@ -77,10 +77,11 @@ type RunInstanceResult struct {
 
 // RunInstance represents a ran instance.
 type RunInstance struct {
-	ID        string `json:"instanceid"`
-	IPAddress string `json:"ip_address"`
-	Password  string `json:"password"`
-	Username  string `json:"username"`
+	ID          string `json:"instanceid"`
+	IPAddress   string `json:"ip_address"`
+	IPv6Address string `json:"ipv6_address"`
+	Password    string `json:"password"`
+	Username    string `json:"username"`
 }
 
 // RunInstanceInput represents the input for running instances.
@@ -89,6 +90,7 @@ type RunInstanceInput struct {
 	ImageID      string
 	PlanName     string
 	Location     string
+	EnableIPv6   bool
 	EnableBackup bool
 	CloneImage   string
 	Qty          int
@@ -130,6 +132,10 @@ type DescribeInstance struct {
 	VMIPAddress                 string `json:"vm_ip_address"`
 	VMIPGateway                 string `json:"vm_ip_gateway"`
 	VMIPSubnet                  string `json:"vm_ip_subnet"`
+	VMIPv6Address               string `json:"vm_ipv6_address"`
+	VMIPv6Prefix                string `json:"vm_ipv6_prefix"`
+	VMIPv6PrefixUsable          string `json:"vm_ipv6_prefix_usable"`
+	VMIPv6Gateway               string `json:"vm_ipv6_gateway"`
 	VMNetworkReq                string `json:"vm_network_req"`
 	VMOSArchitecture            string `json:"vm_os_architecture"`
 	VMPlanName                  string `json:"vm_plan_name"`
@@ -296,6 +302,12 @@ func (client *Client) RunInstance(input *RunInstanceInput) (*RunInstanceOutput, 
 	var actionBuilder strings.Builder
 
 	fmt.Fprintf(&actionBuilder, "run-instance&servername=%s&imageid=%s&planname=%s&vm_location=%s", input.ServerName, input.ImageID, input.PlanName, input.Location)
+
+	if input.EnableIPv6 {
+		fmt.Fprintf(&actionBuilder, "&enable_ipv6=Y")
+	} else {
+		fmt.Fprintf(&actionBuilder, "&enable_ipv6=N")
+	}
 
 	if input.EnableBackup {
 		fmt.Fprintf(&actionBuilder, "&enablebackup=Y")
